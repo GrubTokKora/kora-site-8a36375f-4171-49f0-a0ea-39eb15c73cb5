@@ -1,3 +1,21 @@
 @import "tailwindcss";
 @source "../**/*.html";
 @source "../assets/**/*.js";
+
+/* KORA_BRAND_THEME_START */
+@theme {
+  --color-primary: #57534e;
+  --color-secondary: #ffffff;
+  --color-accent: #991b1b;
+  --font-heading: "Cormorant Garamond", serif;
+  --font-body: Outfit, sans-serif;
+}
+/* KORA_BRAND_THEME_END */
+
+/* KORA_BRAND_BASE_START */
+@layer base {
+  body { font-family: var(--font-body); }
+  h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); }
+}
+/* KORA_BRAND_BASE_END */
+
