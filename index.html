@@ -212,6 +212,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .kora-menu .kora-menu__switcher a { border: 0; border-radius: 999px; padding: .65rem 1.5rem; font-size: .85rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-soft); white-space: nowrap; background: transparent; text-decoration: none; transition: background .2s ease, color .2s ease; }
     .kora-menu .kora-menu__switcher a[aria-current="true"] { background: var(--accent); color: #fff; }
     .kora-menu .kora-menu__switcher a:not([aria-current="true"]):hover { background: var(--cream); }
+    /* Kora draws menus and categories as <section> tags; keep the page-section padding (see `section` above) off them. */
+    .kora-menu .kora-menu__menu, .kora-menu .kora-menu__section { padding: 0; }
     .kora-menu .kora-menu__menu { margin: 0; }
     .kora-menu .kora-menu__menu-title, .kora-menu .kora-menu__section-title { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; margin: 0; }
     .kora-menu .kora-menu__nav { position: sticky; top: var(--header-h); z-index: 30; display: flex; flex-wrap: nowrap; gap: .4rem; overflow-x: auto; scrollbar-width: none; background: rgba(250,247,242,.88); backdrop-filter: blur(10px); border: 1px solid var(--border); border-radius: 999px; padding: .45rem; margin: 0 0 1.5rem; }
