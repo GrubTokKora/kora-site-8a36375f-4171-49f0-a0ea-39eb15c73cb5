@@ -207,26 +207,30 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .about-media { border-radius: 22px; overflow: hidden; box-shadow: var(--shadow-md); } .about-media img { width: 100%; height: min(440px,58vh); object-fit: cover; transition: transform .6s ease; } .about-media:hover img { transform: scale(1.03); }
     .about p { margin: 0 0 1rem; color: var(--ink-muted); } .about-tags { display: flex; gap: .6rem; flex-wrap: wrap; margin-top: 1rem; } .tag { border: 1px solid var(--border); border-radius: 999px; padding: .42rem .9rem; font-size: .72rem; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; background: var(--cream); color: var(--ink-soft); }
     .menu-section { background: linear-gradient(180deg, var(--cream) 0%, #f3eee6 100%); } .menu-intro { text-align: center; max-width: 44ch; margin-inline: auto; margin-bottom: 2.2rem; } .menu-intro p { margin: 0; color: var(--ink-muted); }
-    .menu-tabs-wrap { position: sticky; top: var(--header-h); z-index: 30; background: rgba(250,247,242,.88); backdrop-filter: blur(10px); border: 1px solid var(--border); border-radius: 999px; padding: .45rem; margin-bottom: 1.5rem; }
-    .menu-tabs { display: flex; gap: .4rem; overflow-x: auto; scrollbar-width: none; } .menu-tabs::-webkit-scrollbar { display: none; }
-    .menu-tab { border: 0; border-radius: 999px; padding: .56rem .95rem; font: inherit; font-size: .76rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-soft); white-space: nowrap; background: transparent; cursor: pointer; transition: background .2s ease, color .2s ease; }
-    .menu-tab.active, .menu-tab:hover { background: #fff; color: var(--accent); box-shadow: var(--shadow-sm); }
-    .main-menu-toggle-wrap { display: flex; justify-content: center; margin-bottom: 1.5rem; }
-    .main-menu-toggle { display: inline-flex; background: var(--paper); border: 1px solid var(--border); border-radius: 999px; padding: .4rem; box-shadow: var(--shadow-sm); }
-    .main-menu-tab { border: 0; border-radius: 999px; padding: .65rem 1.5rem; font: inherit; font-size: .85rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-soft); white-space: nowrap; background: transparent; cursor: pointer; transition: background .2s ease, color .2s ease; }
-    .main-menu-tab.active { background: var(--accent); color: #fff; }
-    .main-menu-tab:not(.active):hover { background: var(--cream); }
-    .menu-panel { display: none; } .menu-panel.active { display: block; animation: fadeIn .25s ease; } @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-    .protein-options { background: var(--cream); border: 1px solid var(--border); border-radius: 12px; padding: 1rem 1.25rem; margin-bottom: 1.5rem; }
-    .protein-options h4 { font-family: "Cormorant Garamond", Georgia, serif; font-size: 1.2rem; font-weight: 600; color: var(--ink); margin-bottom: .75rem; }
-    .protein-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: .5rem 1.5rem; font-size: .9rem; } @media (min-width: 500px) { .protein-grid { grid-template-columns: repeat(4, 1fr); } }
-    .protein-item { display: flex; justify-content: space-between; } .protein-name { color: var(--ink-soft); } .protein-price { color: var(--ink); font-weight: 500; }
-    .has-protein-options .menu-item-header .menu-item-price { display: none; }
-    .protein-options-note { font-size: .8rem; color: var(--ink-muted); margin-top: .8rem; }
-    .protein-bar { background: var(--paper); border: 1px solid var(--border); border-radius: 12px; padding: .7rem .95rem; margin-bottom: 1rem; font-size: .86rem; color: var(--ink-soft); }
-    .menu-grid { display: grid; grid-template-columns: 1fr; gap: 0 1.6rem; background: var(--paper); border: 1px solid var(--border); border-radius: var(--radius); padding: .4rem 1.1rem; box-shadow: var(--shadow-sm); } @media (min-width: 820px) { .menu-grid { grid-template-columns: 1fr 1fr; } }
-    .menu-item { padding: 1rem 0; border-bottom: 1px solid var(--border); } .menu-item:last-child { border-bottom: 0; } .menu-item-header { display: flex; justify-content: space-between; gap: .9rem; align-items: flex-start; }
-    .menu-item-name { font-family: "Cormorant Garamond", Georgia, serif; font-size: 1.25rem; color: var(--ink); font-weight: 600; line-height: 1.2; } .menu-item-price { font-family: "Cormorant Garamond", Georgia, serif; font-size: 1.17rem; color: var(--accent); font-weight: 600; white-space: nowrap; } .menu-item-desc { margin: .2rem 0 0; color: var(--ink-muted); font-size: .9rem; }
+    /* The menu is drawn by Kora into the kora:data:menu region; these rules give it this site's look. */
+    .kora-menu .kora-menu__switcher { display: flex; width: max-content; max-width: 100%; margin: 0 auto 1.5rem; background: var(--paper); border: 1px solid var(--border); border-radius: 999px; padding: .4rem; box-shadow: var(--shadow-sm); }
+    .kora-menu .kora-menu__switcher a { border: 0; border-radius: 999px; padding: .65rem 1.5rem; font-size: .85rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-soft); white-space: nowrap; background: transparent; text-decoration: none; transition: background .2s ease, color .2s ease; }
+    .kora-menu .kora-menu__switcher a[aria-current="true"] { background: var(--accent); color: #fff; }
+    .kora-menu .kora-menu__switcher a:not([aria-current="true"]):hover { background: var(--cream); }
+    .kora-menu .kora-menu__menu { margin: 0; }
+    .kora-menu .kora-menu__menu-title, .kora-menu .kora-menu__section-title { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; margin: 0; }
+    .kora-menu .kora-menu__nav { position: sticky; top: var(--header-h); z-index: 30; display: flex; flex-wrap: nowrap; gap: .4rem; overflow-x: auto; scrollbar-width: none; background: rgba(250,247,242,.88); backdrop-filter: blur(10px); border: 1px solid var(--border); border-radius: 999px; padding: .45rem; margin: 0 0 1.5rem; }
+    .kora-menu .kora-menu__nav::-webkit-scrollbar { display: none; }
+    .kora-menu .kora-menu__nav a { border: 0; border-radius: 999px; padding: .56rem .95rem; font-size: .76rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-soft); white-space: nowrap; background: transparent; text-decoration: none; transition: background .2s ease, color .2s ease; }
+    .kora-menu .kora-menu__nav a.is-active, .kora-menu .kora-menu__nav a:hover { background: #fff; color: var(--accent); box-shadow: var(--shadow-sm); }
+    .kora-menu .kora-menu__section { margin: 0; animation: fadeIn .25s ease; }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    .kora-menu .kora-menu__section-desc { background: var(--cream); border: 1px solid var(--border); border-radius: 12px; padding: 1rem 1.25rem; margin: 0 0 1.5rem; font-size: .9rem; color: var(--ink-soft); opacity: 1; }
+    .kora-menu .kora-menu__section-note { font-size: .8rem; color: var(--ink-muted); font-style: normal; opacity: 1; margin: .8rem 0 0; }
+    .kora-menu .kora-menu__items { display: grid; grid-template-columns: 1fr; gap: 0 1.6rem; background: var(--paper); border: 1px solid var(--border); border-radius: var(--radius); padding: .4rem 1.1rem; box-shadow: var(--shadow-sm); }
+    @media (min-width: 820px) { .kora-menu .kora-menu__items { grid-template-columns: 1fr 1fr; } }
+    .kora-menu .kora-menu__item { display: block; padding: 1rem 0; border-bottom: 1px solid var(--border); } .kora-menu .kora-menu__item:last-child { border-bottom: 0; }
+    .kora-menu .kora-menu__item-head { display: flex; justify-content: space-between; gap: .9rem; align-items: flex-start; }
+    .kora-menu .kora-menu__item-name { margin: 0; font-family: "Cormorant Garamond", Georgia, serif; font-size: 1.25rem; color: var(--ink); font-weight: 600; line-height: 1.2; }
+    .kora-menu .kora-menu__item-price { font-family: "Cormorant Garamond", Georgia, serif; font-size: 1.17rem; color: var(--accent); font-weight: 600; white-space: nowrap; }
+    /* Dishes priced by protein show that pricing once, in the box above the list (as before). */
+    .kora-menu .kora-menu__prices { display: none; }
+    .kora-menu .kora-menu__item-desc { margin: .2rem 0 0; color: var(--ink-muted); font-size: .9rem; opacity: 1; }
     .menu-footer-cta { text-align: center; margin-top: 2rem; }
     .info { background: var(--paper); } .info-grid { display: grid; gap: 1.4rem; } @media (min-width: 920px) { .info-grid { grid-template-columns: 1fr 1.1fr; } }
     .card { background: var(--cream); border: 1px solid var(--border); border-radius: 20px; overflow: hidden; box-shadow: var(--shadow-sm); } .card-body { padding: 1.45rem 1.5rem; } .card h3 { font-size: 1.9rem; margin: 0 0 1rem; }
@@ -310,258 +314,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section class="menu-section" id="menu">
 <div class="container">
 <div class="menu-intro reveal"><p class="section-label">Our Menu</p><h2 class="section-title">Authentic Thai Cuisine</h2><p>A complete menu from appetizers to desserts, with separate menus for lunch and dinner.</p></div>
-<div class="main-menu-toggle-wrap reveal">
-<div class="main-menu-toggle">
-<button class="main-menu-tab active" id="dinner-menu-btn">All Day Menu</button>
-<button class="main-menu-tab" id="lunch-menu-btn">Lunch Menu</button>
-</div>
-</div>
-<div id="dinner-menu-content">
-<div class="menu-tabs-wrap reveal"><div class="menu-tabs">
-<button class="menu-tab active" onclick="switchTab(0, 'dinner')">Appetizer</button><button class="menu-tab" onclick="switchTab(1, 'dinner')">Soup</button><button class="menu-tab" onclick="switchTab(2, 'dinner')">Salad</button><button class="menu-tab" onclick="switchTab(3, 'dinner')">Chef Special</button><button class="menu-tab" onclick="switchTab(4, 'dinner')">Noodle &amp; Rice</button><button class="menu-tab" onclick="switchTab(5, 'dinner')">From the Wok</button><button class="menu-tab" onclick="switchTab(6, 'dinner')">Curries</button><button class="menu-tab" onclick="switchTab(7, 'dinner')">Noodle Soup</button><button class="menu-tab" onclick="switchTab(8, 'dinner')">Side Dishes</button><button class="menu-tab" onclick="switchTab(9, 'dinner')">Dessert</button>
-</div></div>
-<div id="dinnerMenuPanels">
-<div class="menu-panel active" data-index="0"><div class="menu-grid">
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Vegetable Spring Roll</span><span class="menu-item-price">$5.75</span></div><p class="menu-item-desc">Served with sweet plum sauce</p></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Edamame</span><span class="menu-item-price">$7.25</span></div><p class="menu-item-desc">Steamed young soy beans sprinkle with salt</p></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Chicken Cashew Wrap</span><span class="menu-item-price">$13.95</span></div><p class="menu-item-desc">Minced chicken, carrot, celery, cilantro and cashew nut served with lettuce</p></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Roti Canai</span><span class="menu-item-price">$9.95</span></div><p class="menu-item-desc">Multi layered bread served with chicken curry</p></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Crab Rangoon</span><span class="menu-item-price">$10.95</span></div><p class="menu-item-desc">Real crab meat and cream cheese wrapped in wonton wrapper</p></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Curry Puff</span><span class="menu-item-price">$8.50</span></div><p class="menu-item-desc">Pastry stuffed with minced chicken, potato and curry powder</p></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Po Pia Sod</span><span class="menu-item-price">$8.95</span></div><p class="menu-item-desc">Lettuce, cucumber, carrot, basil and noodle wrapped in rice paper roll</p></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Shrimp Summer Roll</span><span class="menu-item-price">$10.95</span></div><p class="menu-item-desc">Shrimp, lettuce, cucumber, carrot, basil and noodle wrapped in rice paper roll</p></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Tao Hoo Tord</span><span class="menu-item-price">$7.95</span></div><p class="menu-item-desc">Crispy tofu served with sweet chili sauce</p></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Dumpling (Pork/Chicken/Vegetable)</span><span class="menu-item-price">$8.95</span></div><p class="menu-item-desc">Steamed</p></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Dumpling (Pork/Chicken/Vegetable)</span><span class="menu-item-price">$9.50</span></div><p class="menu-item-desc">Pan Fried</p></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Chicken Satay</span><span class="menu-item-price">$11.95</span></div><p class="menu-item-desc">Grilled marinated chicken served with peanut and cucumber sauce</p></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Chicken Wing</span><span class="menu-item-price">$9.95</span></div><p class="menu-item-desc">Fried chicken wing served with sweet chili sauce</p></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Lime Chili Shrimp</span><span class="menu-item-price">$13.95</span></div><p class="menu-item-desc">Batter-fried shrimp, lime, onion, bell pepper, lemon grass and chili sauce</p></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Crispy Calamari</span><span class="menu-item-price">$12.95</span></div><p class="menu-item-desc">Batter-fried calamari with sweet chili sauce</p></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Mee Grob</span><span class="menu-item-price">$12.95</span></div><p class="menu-item-desc">Shrimp, crispy rice noodle, onion, beansprout in sweet and sour sauce</p></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Kong Tod</span><span class="menu-item-price">$10.95</span></div><p class="menu-item-desc">Crispy shrimp and minced chicken wrapped in wonton wrapper served with sweet chili sauce</p></div>
-</div></div>
-<div class="menu-panel" data-index="1"><div class="menu-grid">
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Tom Yum Goong</span><span class="menu-item-price">$7.95</span></div><p class="menu-item-desc">Shrimp lemongrass soup with mushroom, tomato, scallion and cilantro</p></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Tom Kha Gai</span><span class="menu-item-price">$6.95</span></div><p class="menu-item-desc">Chicken coconut soup with mushroom, tomato, scallion and cilantro</p></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Sweet Corn Soup</span><span class="menu-item-price">$5.95</span></div><p class="menu-item-desc">Garlic, scallion, cilantro, onion and ginger flavor</p></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Vegetable Soup</span><span class="menu-item-price">$5.95</span></div><p class="menu-item-desc">Clear soup with tofu, bean thread, zucchini, carrot and snow peas</p></div>
-</div></div>
-<div class="menu-panel" data-index="2"><div class="menu-grid">
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Thai Salad</span><span class="menu-item-price">$9.50</span></div><p class="menu-item-desc">Green salad, tomato, egg, carrot, red onion and peanut sauce dressing</p></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Somtum</span><span class="menu-item-price">$12.95</span></div><p class="menu-item-desc">Green papaya with tomato, string bean, peanut and tamarind sauce</p></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Larb (Chicken/Pork)</span><span class="menu-item-price">$13.95</span></div><p class="menu-item-desc">Minced chicken/pork mixed with rice powder, chili powder, onion, scallion and cilantro</p></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Nua Nam Tok</span><span class="menu-item-price">$14.95</span></div><p class="menu-item-desc">Sliced beef with onion, lemon grass, roasted rice, scallion, cilantro, lime juice and chili powder</p></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Duck Salad</span><span class="menu-item-price">$16.95</span></div><p class="menu-item-desc">Duck, scallion, onion, tomato, celery and cilantro</p></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Yum Woon Sen</span><span class="menu-item-price">$16.95</span></div><p class="menu-item-desc">Shrimp, ground chicken, glass noodles, lime juice, scallion, celery, tomato, onion, cilantro and peanut</p></div>
-</div></div>
-<div class="menu-panel" data-index="3"><div class="menu-grid">
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Sizzling Pancake</span><span class="menu-item-price">$23.95</span></div><p class="menu-item-desc">Rice pancake filled with shrimp, crab meat, ground pork, mushroom, onion, bean sprout, scallion, cilantro and ground peanut</p></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Seafood Delight</span><span class="menu-item-price">$25.95</span></div><p class="menu-item-desc">Shrimp, scallop, calamari, mussel, crabmeat, tomato, onion, bell pepper, pineapple, egg and spicy curry sauce</p></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Pla Rad Prik</span><span class="menu-item-price">$29.95</span></div><p class="menu-item-desc">Crispy whole red snapper topped with onion, bell pepper and red chili paste</p></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Pla Sam Rod</span><span class="menu-item-price">$29.95</span></div><p class="menu-item-desc">Crispy whole red snapper topped with onion, bell pepper and sweet chili sauce</p></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Salmon Mango Curry</span><span class="menu-item-price">$24.95</span></div><p class="menu-item-desc">Salmon with onion, bell pepper, tomato, coconut milk and mango</p></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Steamed Ginger Fish</span><span class="menu-item-price">$22.95</span></div><p class="menu-item-desc">Steamed tilapia fish topped with bell pepper, garlic, onion, broccoli, snow peas, scallion and cilantro in soy ginger sauce</p></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Pineapple Duck Curry</span><span class="menu-item-price">$27.95</span></div><p class="menu-item-desc">Spicy duck, pineapple, coconut milk, basil and red curry paste</p></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Duck Choo Chee</span><span class="menu-item-price">$27.95</span></div><p class="menu-item-desc">Spicy duck, topped with choo chee sauce, broccoli, snow peas and carrot</p></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Duck Ga Prow</span><span class="menu-item-price">$27.95</span></div><p class="menu-item-desc">Spicy duck with onion, bell pepper, mushroom, chili and basil</p></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Peanut Shrimp Curry</span><span class="menu-item-price">$22.95</span></div><p class="menu-item-desc">Peanut sauce, bell pepper, zucchini, pineapple, basil and curry</p></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Laksa Shrimp</span><span class="menu-item-price">$22.95</span></div><p class="menu-item-desc">Shrimp, rice noodle, red pepper, basil, cilantro, scallion, beansprout, and coconut red curry sauce</p></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Pra Raam Chicken</span><span class="menu-item-price">$18.95</span></div><p class="menu-item-desc">Chicken, spinach, snow peas, cashew nut and peanut sauce</p></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Shaking Beef</span><span class="menu-item-price">$22.95</span></div><p class="menu-item-desc">Tender flank steak marinated in oyster sauce, house sauce, served on a bed of lettuce, cucumber, onion, tomato, scallion, cilantro and ground peanut</p></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Garlic Eggplant Asparagus</span><span class="menu-item-price">$18.95</span></div><p class="menu-item-desc">Asparagus, eggplant, bell pepper, onion sautéed in garlic sauce</p></div>
-</div></div>
-<div class="menu-panel has-protein-options" data-index="4">
-<div class="protein-options">
-<h4>Dinner Pricing</h4>
-<div class="protein-grid">
-<div class="protein-item"><span class="protein-name">Veg or Tofu</span><span class="protein-price">$15.95</span></div>
-<div class="protein-item"><span class="protein-name">Chicken or Pork</span><span class="protein-price">$16.95</span></div>
-<div class="protein-item"><span class="protein-name">Beef Flank Steak</span><span class="protein-price">$17.95</span></div>
-<div class="protein-item"><span class="protein-name">Shrimp</span><span class="protein-price">$18.95</span></div>
-</div>
-</div>
-<div class="menu-grid">
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Pad Thai</span><span class="menu-item-price"></span></div><p class="menu-item-desc">Rice noodle, peanut, bean sprout, egg, scallion and tamarind sauce</p></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Drunken Noodles</span><span class="menu-item-price"></span></div><p class="menu-item-desc">Flat rice noodle with bell pepper, tomato, onion, basil and chili paste</p></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Pad See Ew</span><span class="menu-item-price"></span></div><p class="menu-item-desc">Flat rice noodle with egg, broccoli and carrot</p></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Pad Woon Sen</span><span class="menu-item-price"></span></div><p class="menu-item-desc">Glass noodle with egg, onion, mushroom, carrot, snow peas, beansprout and celery</p></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Mee Goreng</span><span class="menu-item-price"></span></div><p class="menu-item-desc">Egg noodle with onion, oyster sauce and sweet soy sauce</p></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">House Fried Rice</span><span class="menu-item-price"></span></div><p class="menu-item-desc">With egg, onion, green peas, carrot and scallion</p></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Spicy Fried Rice</span><span class="menu-item-price"></span></div><p class="menu-item-desc">Spicy basil rice with onion, bell pepper</p></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Pineapple Fried Rice</span><span class="menu-item-price"></span></div><p class="menu-item-desc">Fried rice with egg, pineapple, onion, curry powder, cashew nut</p></div>
-</div>
-</div>
-<div class="menu-panel has-protein-options" data-index="5">
-<div class="protein-options">
-<h4>Dinner Pricing</h4>
-<div class="protein-grid">
-<div class="protein-item"><span class="protein-name">Veg or Tofu</span><span class="protein-price">$14.95</span></div>
-<div class="protein-item"><span class="protein-name">Chicken or Pork</span><span class="protein-price">$17.95</span></div>
-<div class="protein-item"><span class="protein-name">Beef Flank Steak</span><span class="protein-price">$18.95</span></div>
-<div class="protein-item"><span class="protein-name">Shrimp</span><span class="protein-price">$19.95</span></div>
-</div>
-<p class="protein-options-note">Served with jasmine rice (substitute brown rice for $1.50)</p>
-</div>
-<div class="menu-grid">
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Basil</span><span class="menu-item-price"></span></div><p class="menu-item-desc">Onion, bell pepper, mushroom, basil and chili paste</p></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Cashew Nut</span><span class="menu-item-price"></span></div><p class="menu-item-desc">Onion, bell pepper, carrot, mushroom, celery and pineapple</p></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Ginger</span><span class="menu-item-price"></span></div><p class="menu-item-desc">Scallion, onion, bell pepper, ginger and mushroom</p></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Garlic</span><span class="menu-item-price"></span></div><p class="menu-item-desc">Snow peas, carrot, bell pepper, black pepper and brown sauce on bed of lettuce and onion</p></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Sambal</span><span class="menu-item-price"></span></div><p class="menu-item-desc">Onion, bell pepper, carrot, snow peas, ginger and sambal sauce</p></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Sweet and Sour</span><span class="menu-item-price"></span></div><p class="menu-item-desc">Onion, bell pepper, tomato, cucumber and pineapple</p></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Broccoli</span><span class="menu-item-price"></span></div><p class="menu-item-desc">Broccoli, carrot, onion and brown sauce</p></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Pad Ped</span><span class="menu-item-price"></span></div><p class="menu-item-desc">Bamboo shoot, string bean, bell pepper, basil leaf in spicy curry sauce</p></div>
-</div>
-</div>
-<div class="menu-panel has-protein-options" data-index="6">
-<div class="protein-options">
-<h4>Dinner Pricing</h4>
-<div class="protein-grid">
-<div class="protein-item"><span class="protein-name">Veg or Tofu</span><span class="protein-price">$15.95</span></div>
-<div class="protein-item"><span class="protein-name">Chicken</span><span class="protein-price">$17.95</span></div>
-<div class="protein-item"><span class="protein-name">Beef Flank Steak</span><span class="protein-price">$18.45</span></div>
-<div class="protein-item"><span class="protein-name">Shrimp</span><span class="protein-price">$19.95</span></div>
-</div>
-<p class="protein-options-note">Served with jasmine rice (substitute brown rice for $1.50)</p>
-</div>
-<div class="menu-grid">
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Mango Curry</span><span class="menu-item-price"></span></div><p class="menu-item-desc">Mango, coconut milk, onion, bell pepper, tomato with red curry</p></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Yellow Curry</span><span class="menu-item-price"></span></div><p class="menu-item-desc">Coconut milk, onion, potato, carrot and string bean with yellow curry</p></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Masaman Curry</span><span class="menu-item-price"></span></div><p class="menu-item-desc">Coconut milk, onion, potato, carrot and peanut</p></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Jungle Curry</span><span class="menu-item-price"></span></div><p class="menu-item-desc">Spicy curry with eggplant, bell pepper, mushroom, string bean, bamboo shoot and basil</p></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Pineapple Curry</span><span class="menu-item-price"></span></div><p class="menu-item-desc">Pineapple, coconut milk, onion, bell pepper, tomato, basil with red curry sauce</p></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Rendang</span><span class="menu-item-price"></span></div><p class="menu-item-desc">Coconut milk stew with chili, onion, garlic, potato bay leaf and lemon grass</p></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Red Curry</span><span class="menu-item-price"></span></div><p class="menu-item-desc">Coconut milk, bell pepper, bamboo shoot, green bean and basil with red curry</p></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Green Curry</span><span class="menu-item-price"></span></div><p class="menu-item-desc">Coconut milk, zucchini, eggplant, bell pepper, bamboo shoot and basil with green curry</p></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Penang Curry</span><span class="menu-item-price"></span></div><p class="menu-item-desc">Coconut milk, bell pepper and string bean</p></div>
-</div>
-</div>
-<div class="menu-panel has-protein-options" data-index="7">
-<div class="protein-options">
-<h4>Dinner Pricing</h4>
-<div class="protein-grid">
-<div class="protein-item"><span class="protein-name">Veg or Tofu</span><span class="protein-price">$15.95</span></div>
-<div class="protein-item"><span class="protein-name">Chicken or Pork</span><span class="protein-price">$16.95</span></div>
-<div class="protein-item"><span class="protein-name">Beef Flank Steak</span><span class="protein-price">$17.95</span></div>
-<div class="protein-item"><span class="protein-name">Shrimp</span><span class="protein-price">$18.95</span></div>
-</div>
-</div>
-<div class="menu-grid">
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Noodle Soup</span><span class="menu-item-price"></span></div><p class="menu-item-desc">Rice noodle with bean sprout, scallion, onion and cilantro</p></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Tom Yum Noodle Soup</span><span class="menu-item-price"></span></div><p class="menu-item-desc">Sour soup with rice noodle, peanut, chili, onion, scallion, bean sprout and cilantro</p></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Duck Noodle Soup</span><span class="menu-item-price" style="display: inline;">$19.95</span></div></div>
-</div>
-</div>
-<div class="menu-panel" data-index="8"><div class="menu-grid">
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Jasmine rice</span><span class="menu-item-price">$2.50</span></div></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Brown rice</span><span class="menu-item-price">$2.50</span></div></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Thai Sticky Rice</span><span class="menu-item-price">$2.75</span></div></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Steamed Vegetable</span><span class="menu-item-price">$7.95</span></div></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Add Tofu</span><span class="menu-item-price">$2.00</span></div></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Peanut Sauce</span><span class="menu-item-price">$1.00</span></div></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Sub Brown Rice</span><span class="menu-item-price">$1.50</span></div></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Sub Sticky Rice</span><span class="menu-item-price">$1.50</span></div></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Prik Nam Pla</span><span class="menu-item-price">$1.00</span></div></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Hot Sauce</span><span class="menu-item-price">$1.00</span></div></div>
-</div></div>
-<div class="menu-panel" data-index="9"><div class="menu-grid">
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Mango Sticky Rice</span><span class="menu-item-price">$8.95</span></div></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Coconut Pudding</span><span class="menu-item-price">$7.50</span></div></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Fried Banana</span><span class="menu-item-price">$6.95</span></div></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Fried Banana with Ice cream</span><span class="menu-item-price">$7.95</span></div></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Fried Ice Cream</span><span class="menu-item-price">$8.95</span></div></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Ice Cream</span><span class="menu-item-price">$7.50</span></div><p class="menu-item-desc">(Mango, Green Tea, Coconut, Vanilla)</p></div>
-</div></div>
-</div>
-</div>
-<div id="lunch-menu-content" style="display: none;">
-<div class="menu-tabs-wrap reveal"><div class="menu-tabs">
-<button class="menu-tab active" onclick="switchTab(0, 'lunch')">Noodle &amp; Rice</button><button class="menu-tab" onclick="switchTab(1, 'lunch')">From the Wok</button><button class="menu-tab" onclick="switchTab(2, 'lunch')">Curries</button><button class="menu-tab" onclick="switchTab(3, 'lunch')">Noodle Soup</button>
-</div></div>
-<div id="lunchMenuPanels">
-<div class="menu-panel active has-protein-options" data-index="0">
-<div class="protein-options">
-<h4>Lunch Pricing</h4>
-<div class="protein-grid">
-<div class="protein-item"><span class="protein-name">Veg or Tofu</span><span class="protein-price">$12.95</span></div>
-<div class="protein-item"><span class="protein-name">Chicken or Pork</span><span class="protein-price">$13.95</span></div>
-<div class="protein-item"><span class="protein-name">Beef Flank Steak</span><span class="protein-price">$14.95</span></div>
-<div class="protein-item"><span class="protein-name">Shrimp</span><span class="protein-price">$15.95</span></div>
-</div>
-</div>
-<div class="menu-grid">
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Pad Thai</span><span class="menu-item-price"></span></div><p class="menu-item-desc">Rice noodle, peanut, bean sprout, egg, scallion and tamarind sauce</p></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Drunken Noodles</span><span class="menu-item-price"></span></div><p class="menu-item-desc">Flat rice noodle with bell pepper, tomato, onion, basil and chili paste</p></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Pad See Ew</span><span class="menu-item-price"></span></div><p class="menu-item-desc">Flat rice noodle with egg, broccoli and carrot</p></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Pad Woon Sen</span><span class="menu-item-price"></span></div><p class="menu-item-desc">Glass noodle with egg, onion, mushroom, carrot, snow peas, beansprout and celery</p></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Mee Goreng</span><span class="menu-item-price"></span></div><p class="menu-item-desc">Egg noodle with onion, oyster sauce and sweet soy sauce</p></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">House Fried Rice</span><span class="menu-item-price"></span></div><p class="menu-item-desc">With egg, onion, green peas, carrot and scallion</p></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Spicy Fried Rice</span><span class="menu-item-price"></span></div><p class="menu-item-desc">Spicy basil rice with onion, bell pepper</p></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Pineapple Fried Rice</span><span class="menu-item-price"></span></div><p class="menu-item-desc">Fried rice with egg, pineapple, onion, curry powder, cashew nut</p></div>
-</div>
-</div>
-<div class="menu-panel has-protein-options" data-index="1">
-<div class="protein-options">
-<h4>Lunch Pricing</h4>
-<div class="protein-grid">
-<div class="protein-item"><span class="protein-name">Veg or Tofu</span><span class="protein-price">$11.95</span></div>
-<div class="protein-item"><span class="protein-name">Chicken or Pork</span><span class="protein-price">$12.95</span></div>
-<div class="protein-item"><span class="protein-name">Beef Flank Steak</span><span class="protein-price">$13.95</span></div>
-<div class="protein-item"><span class="protein-name">Shrimp</span><span class="protein-price">$15.95</span></div>
-</div>
-<p class="protein-options-note">Served with jasmine rice (substitute brown rice for $1.50)</p>
-</div>
-<div class="menu-grid">
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Basil</span><span class="menu-item-price"></span></div><p class="menu-item-desc">Onion, bell pepper, mushroom, basil and chili paste</p></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Cashew Nut</span><span class="menu-item-price"></span></div><p class="menu-item-desc">Onion, bell pepper, carrot, mushroom, celery and pineapple</p></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Ginger</span><span class="menu-item-price"></span></div><p class="menu-item-desc">Scallion, onion, bell pepper, ginger and mushroom</p></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Garlic</span><span class="menu-item-price"></span></div><p class="menu-item-desc">Snow peas, carrot, bell pepper, black pepper and brown sauce on bed of lettuce and onion</p></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Sambal</span><span class="menu-item-price"></span></div><p class="menu-item-desc">Onion, bell pepper, carrot, snow peas, ginger and sambal sauce</p></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Sweet and Sour</span><span class="menu-item-price"></span></div><p class="menu-item-desc">Onion, bell pepper, tomato, cucumber and pineapple</p></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Broccoli</span><span class="menu-item-price"></span></div><p class="menu-item-desc">Broccoli, carrot, onion and brown sauce</p></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Pad Ped</span><span class="menu-item-price"></span></div><p class="menu-item-desc">Bamboo shoot, string bean, bell pepper, basil leaf in spicy curry sauce</p></div>
-</div>
-</div>
-<div class="menu-panel has-protein-options" data-index="2">
-<div class="protein-options">
-<h4>Lunch Pricing</h4>
-<div class="protein-grid">
-<div class="protein-item"><span class="protein-name">Veg or Tofu</span><span class="protein-price">$11.95</span></div>
-<div class="protein-item"><span class="protein-name">Chicken</span><span class="protein-price">$12.95</span></div>
-<div class="protein-item"><span class="protein-name">Beef Flank Steak</span><span class="protein-price">$13.95</span></div>
-<div class="protein-item"><span class="protein-name">Shrimp</span><span class="protein-price">$14.95</span></div>
-</div>
-<p class="protein-options-note">Served with jasmine rice (substitute brown rice for $1.50)</p>
-</div>
-<div class="menu-grid">
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Mango Curry</span><span class="menu-item-price"></span></div><p class="menu-item-desc">Mango, coconut milk, onion, bell pepper, tomato with red curry</p></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Yellow Curry</span><span class="menu-item-price"></span></div><p class="menu-item-desc">Coconut milk, onion, potato, carrot and string bean with yellow curry</p></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Masaman Curry</span><span class="menu-item-price"></span></div><p class="menu-item-desc">Coconut milk, onion, potato, carrot and peanut</p></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Jungle Curry</span><span class="menu-item-price"></span></div><p class="menu-item-desc">Spicy curry with eggplant, bell pepper, mushroom, string bean, bamboo shoot and basil</p></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Pineapple Curry</span><span class="menu-item-price"></span></div><p class="menu-item-desc">Pineapple, coconut milk, onion, bell pepper, tomato, basil with red curry sauce</p></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Rendang</span><span class="menu-item-price"></span></div><p class="menu-item-desc">Coconut milk stew with chili, onion, garlic, potato bay leaf and lemon grass</p></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Red Curry</span><span class="menu-item-price"></span></div><p class="menu-item-desc">Coconut milk, bell pepper, bamboo shoot, green bean and basil with red curry</p></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Green Curry</span><span class="menu-item-price"></span></div><p class="menu-item-desc">Coconut milk, zucchini, eggplant, bell pepper, bamboo shoot and basil with green curry</p></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Penang Curry</span><span class="menu-item-price"></span></div><p class="menu-item-desc">Coconut milk, bell pepper and string bean</p></div>
-</div>
-</div>
-<div class="menu-panel has-protein-options" data-index="3">
-<div class="protein-options">
-<h4>Lunch Pricing</h4>
-<div class="protein-grid">
-<div class="protein-item"><span class="protein-name">Veg or Tofu</span><span class="protein-price">$13.95</span></div>
-<div class="protein-item"><span class="protein-name">Chicken or Pork</span><span class="protein-price">$14.95</span></div>
-<div class="protein-item"><span class="protein-name">Beef Flank Steak</span><span class="protein-price">$15.95</span></div>
-<div class="protein-item"><span class="protein-name">Shrimp</span><span class="protein-price">$16.95</span></div>
-</div>
-</div>
-<div class="menu-grid">
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Noodle Soup</span><span class="menu-item-price"></span></div><p class="menu-item-desc">Rice noodle with bean sprout, scallion, onion and cilantro</p></div>
-<div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Tom Yum Noodle Soup</span><span class="menu-item-price"></span></div><p class="menu-item-desc">Sour soup with rice noodle, peanut, chili, onion, scallion, bean sprout and cilantro</p></div>
-</div>
-</div>
-</div>
-</div>
+<!-- kora:data:menu layout="tabs" -->
+<!-- /kora:data:menu -->
 <div class="menu-footer-cta reveal"><a class="btn btn-primary" href="https://order.toasttab.com/online/rainbow-thai-5-bridge-sq" rel="noopener noreferrer" target="_blank">Order Online</a></div>
 </div>
 </section>
@@ -676,38 +430,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </main>
 <footer class="site-footer"><div class="container footer-grid"><div><h4>Phone</h4><p><a href="tel:+1 (203) 557-9000">+1 (203) 557-9000</a></p></div><div><h4>Visit</h4><p>5 Bridge Square<br/>Westport, CT 06880</p></div><div><h4>Follow</h4><p><a href="https://www.instagram.com/rainbowthaict/" rel="noopener noreferrer" target="_blank">@rainbowthaict</a></p></div></div><p class="footer-bottom">© <span id="year"></span> Rainbow Thai. All rights reserved.</p></footer>
 <script>
-    function switchTab(index, menuType) {
-      const prefix = menuType === 'lunch' ? 'lunch' : 'dinner';
-      const menuContent = document.getElementById(`${prefix}-menu-content`);
-      if (menuContent) {
-        menuContent.querySelectorAll(".menu-tab").forEach((tab, i) => tab.classList.toggle("active", i === index));
-        menuContent.querySelectorAll(".menu-panel").forEach((panel, i) => panel.classList.toggle("active", i === index));
-      }
-    }
     (function () {
-      const dinnerMenuBtn = document.getElementById('dinner-menu-btn');
-      const lunchMenuBtn = document.getElementById('lunch-menu-btn');
-      const dinnerMenuContent = document.getElementById('dinner-menu-content');
-      const lunchMenuContent = document.getElementById('lunch-menu-content');
-
-      if (dinnerMenuBtn && lunchMenuBtn && dinnerMenuContent && lunchMenuContent) {
-        dinnerMenuBtn.addEventListener('click', () => {
-          if (dinnerMenuBtn.classList.contains('active')) return;
-          dinnerMenuBtn.classList.add('active');
-          lunchMenuBtn.classList.remove('active');
-          dinnerMenuContent.style.display = 'block';
-          lunchMenuContent.style.display = 'none';
+      // Category tabs: the sections of each menu are all in the page; show one at a time.
+      document.querySelectorAll('.kora-menu__menu').forEach(function (menu) {
+        var nav = menu.querySelector('.kora-menu__nav');
+        var sections = menu.querySelectorAll('.kora-menu__section');
+        if (!nav || sections.length < 2) return;
+        var links = nav.querySelectorAll('a');
+        function show(id) {
+          sections.forEach(function (s) { s.hidden = s.id !== id; });
+          links.forEach(function (a) { a.classList.toggle('is-active', a.getAttribute('href') === '#' + id); });
+        }
+        links.forEach(function (a) {
+          a.addEventListener('click', function (e) { e.preventDefault(); show(a.getAttribute('href').slice(1)); });
         });
-
-        lunchMenuBtn.addEventListener('click', () => {
-          if (lunchMenuBtn.classList.contains('active')) return;
-          lunchMenuBtn.classList.add('active');
-          dinnerMenuBtn.classList.remove('active');
-          lunchMenuContent.style.display = 'block';
-          dinnerMenuContent.style.display = 'none';
-        });
-      }
-
+        show(sections[0].id);
+      });
+    })();
+    (function () {
       var header = document.getElementById("siteHeader"); var menuToggle = document.getElementById("menuToggle"); var mobileNav = document.getElementById("mobileNav"); var navLinks = document.querySelectorAll(".nav-link"); var sections = document.querySelectorAll("section[id]");
       function onScroll() { header.classList.toggle("is-scrolled", window.scrollY > 24); var current = ""; sections.forEach(function (section) { if (window.scrollY >= section.offsetTop - 260) current = section.id; }); navLinks.forEach(function (link) { link.classList.toggle("active", link.dataset.section === current); }); }
       window.addEventListener("scroll", onScroll, { passive: true }); onScroll();
